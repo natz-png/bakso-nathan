@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bakso Nathan - Rasa Nikmat, Harga Terjangkau</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #f0f8ff;
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(17,153,142,0.95), rgba(56,239,125,0.95));
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-top: 80px;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #25d366, #128c7e);
+            color: white;
+            padding: 1.2rem 3rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(37,211,102,0.4);
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(37,211,102,0.6);
+        }
+
+        /* Menu Section */
+        .menu {
+            padding: 100px 0;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: #11998e;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(45deg, #11998e, #38ef7d);
+            border-radius: 2px;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .menu-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(17,153,142,0.1);
+            text-align: center;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .menu-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(56,239,125,0.1), transparent);
+            transition: 0.6s;
+        }
+
+        .menu-item:hover::before {
+            left: 100%;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 30px 60px rgba(17,153,142,0.2);
+        }
+
+        .menu-icon {
+            font-size: 3rem;
+            color: #38ef7d;
+            margin-bottom: 1rem;
+        }
+
+        .menu-item h3 {
+            color: #11998e;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .price {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #ff6b6b;
+            margin: 1rem 0;
+        }
+
+        /* About Section */
+        .about {
+            background: linear-gradient(135deg, #38ef7d 0%, #11998e 100%);
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 100px 0;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            text-align: center;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .contact-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .contact-icon {
+            font-size: 2.5rem;
+            color: #11998e;
+            margin-bottom: 1rem;
+        }
+
+        .wa-link {
+            color: #25d366;
+            text-decoration: none;
+            font-weight: 600;
+            border: 2px solid #25d366;
+            padding: 10px 20px;
+            border-radius: 25px;
+            display: inline-block;
+            margin-top: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .wa-link:hover {
+            background: #25d366;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* WHATSAPP FLOATING BUTTON */
+        .whatsapp-float {
+            position: fixed;
+            width: 70px;
+            height: 70px;
+            bottom: 40px;
+            right: 40px;
+            z-index: 10000;
+        }
+
+        .whatsapp-float-btn {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(45deg, #25d366, #128c7e);
+            color: white;
+            border-radius: 50px;
+            text-decoration: none;
+            box-shadow: 0 8px 25px rgba(37,211,102,0.4);
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+            font-weight: 600;
+        }
+
+        .whatsapp-float-btn:hover {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 12px 35px rgba(37,211,102,0.6);
+            text-decoration: none;
+            color: white;
+        }
+
+        .whatsapp-float-btn i {
+            font-size: 2rem;
+            margin-bottom: 4px;
+        }
+
+        .whatsapp-float-btn span {
+            font-size: 0.75rem;
+            white-space: nowrap;
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(37,211,102,0.7); }
+            70% { box-shadow: 0 0 0 25px rgba(37,211,102,0); }
+            100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-content h1 { font-size: 2.5rem; }
+            .nav-links { display: none; }
+            .menu-grid { grid-template-columns: 1fr; }
+            .whatsapp-float { bottom: 20px; right: 20px; }
+            .whatsapp-float-btn { width: 60px; height: 60px; }
+            .whatsapp-float-btn i { font-size: 1.6rem; }
+        }
+
+        /* Floating Animation Menu */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .menu-item:nth-child(1) { animation: float 3s ease-in-out infinite; }
+        .menu-item:nth-child(2) { animation: float 3s ease-in-out infinite 0.5s; }
+        .menu-item:nth-child(3) { animation: float 3s ease-in-out infinite 1s; }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <a href="#" class="logo">
+                <i class="fas fa-utensils"></i> Bakso Nathan
+            </a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#about">Tentang</a></li>
+                <li><a href="#contact">Kontak</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Bakso Nathan</h1>
+            <p>Rasa Nikmat, Harga Terjangkau<br><strong>HANYA Rp5.000!</strong></p>
+            <!-- WHATSAPP CTA BUTTON -->
+            <a href="https://wa.me/85731156651?text=Halo%20Bakso%20Nathan%20🍲%0ASaya%20mau%20pesan%20sekarang!%20⏰" 
+               class="cta-button" target="_blank">
+               <i class="fab fa-whatsapp"></i> Pesan via WA
+            </a>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="menu">
+        <div class="section-title">
+            <h2>Menu Pilihan Kami</h2>
+            <p>Menu utama hanya Rp5.000 - Kenikmatan tanpa menguras kantong!</p>
+        </div>
+        <div class="menu-grid">
+            <div class="menu-item">
+                <div class="menu-icon"><i class="fas fa-drumstick-bite"></i></div>
+                <h3>Bakso </h3>
+                <div class="price">Rp 5.000</div>
+                <p>Bakso kenyal dengan kuah kaldu gurih!</p>
+            </div>
+            <div class="menu-item">
+                <div class="menu-icon"><i class="fas fa-ice-cream"></i></div>
+                <h3>Es Buah Segar</h3>
+                <div class="price">Rp 5.000</div>
+                <p>Buah segar + susu kental manis menyegarkan!</p>
+            </div>
+            <div class="menu-item">
+                <div class="menu-icon"><i class="fas fa-snowflake"></i></div>
+                <h3>Pop Ice</h3>
+                <div class="price">Rp 3.000</div>
+                <p>pop ice yang menyegarkan</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="about-content">
+            <h2>Tentang Bakso Nathan</h2>
+            <p>Kami penjual bakso sejak 2021. Resep enak nan rahasia bikin nagih!</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="section-title">
+            <h2>Cari Kami</h2>
+            <h2>DESA JAJAR KECAMATAN WATES KABUPATEN KEDIRI</h2>
+        </div>
+        <div class="contact-info">
+            <div class="contact-item">
+                <div class="contact-icon"><i class="fas fa-home"></i></div>
+                <h3>Depan rumah</h3>
+                <p>Tiap hari 10.00 - 20.00<br></p>
+            </div>
+            <div class="contact-item">
+                <div class="contact-icon"><i class="fab fa-whatsapp"></i></div>
+                <h3>WhatsApp Order</h3>
+                <p><strong>+62 812-3456-7890</strong><br>
+                <a href="https://wa.me/85731156651?text=Halo%20Bakso%20Nathan!%20Saya%20mau%20pesan..." 
+                   class="wa-link" target="_blank">
+                   <i class="fab fa-whatsapp"></i> Chat Sekarang
+                </a></p>
+            </div>
+            <div class="contact-item">
+                <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                <h3>Lokasi</h3>
+                <p>Jl. Mawar Desa Jajar<br>Kecamatan Wates Kab. Kediri</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Bakso Nathan. <i class="fas fa-heart" style="color: #ff6b6b;"></i> Dibuat dengan 💚</p>
+    </footer>
+
+    <!-- FLOATING WHATSAPP BUTTON (SELALU NYANGKUT DI BAWAH KANAN) -->
+    <div class="whatsapp-float">
+        <a href="https://wa.me/85731156651?text=
+Halo%20Bakso%20Nathan%20🍲%0A%0A%F0%9F%93%B1%20PESANAN:%0A•%20Bakso%20(____)%0A•%20Es%20Buah%20(____)%0A•%20Pop%20Ice%20(____)%0A%0A%F0%9F%92%B0%20TOTAL:%20Rp%20______⏰%20Kirim%20sekarang%20ya!" 
+           class="whatsapp-float-btn" target="_blank">
+            <i class="fab fa-whatsapp"></i>
+            <span>Pesan WA</span>
+        </a>
+    </div>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(17, 153, 142, 0.95)';
+                header.style.backdropFilter = 'blur(10px)';
+            } else {
+                header.style.background = 'linear-gradient(135deg, #11998e 0%, #38ef7d 100%)';
+                header.style.backdropFilter = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
